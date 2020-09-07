@@ -33,7 +33,17 @@ VFPS = 0
 VFPC = 0
 TOT = 0
 
+def FPC (PC,CPC):
+    FPC = int(PC*CPC)
+    return FPC
 
+def FPS (PS,CPS):
+    FPS = int(PS*CPS)
+    return FPS
+
+def MTP (FPC,FPS):
+    MTP = VFPC+VFPS
+    return MTP
 
 
 
