@@ -16,7 +16,22 @@
 # y la cantidad de kg vendidos en el día.
 
 
+def main():
+    pass
 
+if __name__ == '__main__':
+    main()
+
+A = 0
+PA = "SI"
+PC = 135
+PS = 184
+CPC = 0
+CPS = 0
+CT = []
+VFPS = 0
+VFPC = 0
+TOT = 0
 
 
 
