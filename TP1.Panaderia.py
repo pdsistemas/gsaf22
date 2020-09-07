@@ -45,6 +45,21 @@ def MTP (FPC,FPS):
     MTP = VFPC+VFPS
     return MTP
 
+while PA == "SI":
+    CPC = int(input("Ingrese la cantidad de Kg de pan comun de esta compra: "))
+    CPS = int(input("Ingrese la cantidad de Kg de pan de salvado de esta compra: "))
+    VFPS = FPS(PS,CPS)
+    VFPC = FPC(CPC,PC)
+    CT.append(CPC+CPS)
+    print("El monto de este cliente es de: $", MTP(FPC,FPS))
+    A = A+1
+    PA = str(input("Desea ingresar otra compra? Si/No"))
+    PA = PA.upper()
+
+for I in range (0,len(CT)):
+    TOT = TOT+CT[I]
+
+print("El total de Kg vendidos fue: ", TOT)
 
 
 
