@@ -1,65 +1,51 @@
-#-------------------------------------------------------------------------------
-# Name:        module1
-# Purpose:
-#
-# Author:      Patricio D'Antonio
-#
-# Created:     24/10/2019
-# Copyright:   (c) Patricio D'Antonio 2019
-# Licence:     <your licence>
-#-------------------------------------------------------------------------------
-#!/usr/bin/env python
-
-
-
 # Hacer un programa que calcule el precio a pagar de cada cliente de una panaderia
-# y la cantidad de kg vendidos en el día.
+# y la cantidad de kg vendidos en el dÃ­a.
 
 
-def main():
-    pass
 
-if __name__ == '__main__':
-    main()
+#Las primeras mejoras que realizare al programa seran:
+#Cambio masivo de nombre en las variables para un mejor entendimiento de cada una
+#Agregare antes de entrar al WHILE dos ingresos para que el usuario pueda poner el precio al pan que el quiera cobrar en el dia, ya que ahora se encuentra de forma predeterminada por el programador
+#Borrare variables declaradas que no son necesarias
+PanaderiaAbierta = "SI"
+CantPanComun = 0
+CantPanSalv = 0
+KGPan = []
+Cliente = 0
 
-A = 0
-PA = "SI"
-PC = 135
-PS = 184
-CPC = 0
-CPS = 0
-CT = []
-VFPS = 0
-VFPC = 0
-TOT = 0
+#Borro los "int" puestos en los dos def ya que no son necesarios
+def CalculoPanComun (PrecioPanComun,CantPanComun):
+    CalculoPanComun = CantPanComun * PrecioPanComun
+    return CalculoPanComun
 
-def FPC (PC,CPC):
-    FPC = int(PC*CPC)
-    return FPC
+def CalculoPanSalv (PrecioPanSalv,CantPanSalv):
+    CalculoPanSalv = CantPanSalv * PrecioPanSalv
+    return CalculoPanSalv
 
-def FPS (PS,CPS):
-    FPS = int(PS*CPS)
-    return FPS
+def TotalCliente (TotalPanComun,TotalPanSalvado):
+    TotalCliente = TotalPanComun + TotalPanSalvado
+    return TotalCliente
 
-def MTP (FPC,FPS):
-    MTP = VFPC+VFPS
-    return MTP
+#Aca vemos una de las mejoras que realice, el pedido del precio del pan al usuario
+PrecioPanComun = float(input("Ingrese el valor que tendra el pan comun el dia de hoy: "))
+PrecioPanSalv = float(input("Ingrese el valor que tendra el pan de salvado el dia de hoy: "))
 
-while PA == "SI":
-    CPC = int(input("Ingrese la cantidad de Kg de pan comun de esta compra: "))
-    CPS = int(input("Ingrese la cantidad de Kg de pan de salvado de esta compra: "))
-    VFPS = FPS(PS,CPS)
-    VFPC = FPC(CPC,PC)
-    CT.append(CPC+CPS)
-    print("El monto de este cliente es de: $", MTP(FPC,FPS))
-    A = A+1
-    PA = str(input("Desea ingresar otra compra? Si/No"))
-    PA = PA.upper()
+while PanaderiaAbierta == "SI":
+    CantPanComun = int(input("Ingrese la cantidad de Kg de pan comun de esta compra: "))
+    CantPanSalv = int(input("Ingrese la cantidad de Kg de pan de salvado de esta compra: "))
+    TotalPanComun = CalculoPanComun(PrecioPanComun,CantPanComun)
+    TotalPanSalvado = CalculoPanSalv(PrecioPanSalv,CantPanSalv)
+    KGPan.append(CantPanComun+CantPanSalv)
+    print("El monto de este cliente es de: $", TotalCliente(TotalPanComun,TotalPanSalvado))
+    Cliente = Cliente + 1
+    PanaderiaAbierta = str(input("Desea ingresar otra compra? Si/No"))
+    PanaderiaAbierta = PanaderiaAbierta.upper()
 
-for I in range (0,len(CT)):
-    TOT = TOT+CT[I]
+#Borro y cambio el metodo utilizado para la suma total de KG que utilizo el programador original, la cambio por una mas corta y sencilla
+#Cambio el "for" por el metodo "sum" de lista
+TotalKGDia = sum(KGPan)
 
-print("El total de Kg vendidos fue: ", TOT)
+print("El total de Kg vendidos fue: ", TotalKGDia)
 
 
 
