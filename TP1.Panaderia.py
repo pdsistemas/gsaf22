@@ -13,6 +13,9 @@
 #Agregar mas funciones al programa como una lista nueva y el uso de un acumulador para mostrar mas datos en la salida del programa
 #Cambio en el nombre de la variable inicial del "while", que mejorara el uso del programa al usuario
 
+#Las ultimas mejoras que realizare al programa seran:
+#Agregar mas print para tener una mejor visualizacion en la interfaz
+
 #Tambien cambio el valor inicial que tendra la primer variable
 PanaderiaAbierta = "S"
 CantPanComun = 0
@@ -49,6 +52,11 @@ while PanaderiaAbierta == "S":
     TotalPanComun = CalculoPanComun(PrecioPanComun,CantPanComun)
     TotalPanSalvado = CalculoPanSalv(PrecioPanSalv,CantPanSalv)
     KGPan.append(CantPanComun+CantPanSalv)
+    print("--------------------------------------------------------------------------------------")
+    #Agregue este print para que el cliente sepa la cant de pan que esta comprando
+    print("El cliente compro", CantPanComun,"KG de pan comun y",CantPanSalv,"KG de pan de salvado")
+    #Agregue este print para que el cliente sepa el precio que tiene el pan el dia de hoy
+    print("El costo del pan comun el dia de hoy es de $",PrecioPanComun,"y el del pan de salvado de $",PrecioPanSalv)
     print("El monto de este cliente es de: $", TotalCliente(TotalPanComun,TotalPanSalvado))
     #El programador original, dejo este acumulador sin ningun uso, para no sacarlo, decidi cambiarle el nombre y de este modo poder calcular la cantidad de clientes que tuvo la panaderia
     Cliente = Cliente + 1
@@ -60,9 +68,12 @@ while PanaderiaAbierta == "S":
 #Cambio el "for" por el metodo "sum" de lista
 TotalKGDia = sum(KGPan)
 
+#Aca tambien agregue mas print para una mejor visuazlizacion para el usuario
+print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+print("PANADERIA CERRADA")
 #En el siguiente print mostrare la cantidad de clientes que tuvo la panaderia usando el acumulador "Cliente"
 print("La panaderia tuvo un total de",Cliente,"cliente(s) el dia de hoy")
-print("El total de Kg vendidos fue: ", TotalKGDia,"KG")
+print("El total de Kg vendidos fue: ", "{0:.2f}".format(TotalKGDia),"KG")
 #Agregare un print donde se sumara la lista y mostrara el total recaudado
 print("El total recaudado de la panaderia en el dia de hoy fue de: $",sum(TotalRecaudado))
 
